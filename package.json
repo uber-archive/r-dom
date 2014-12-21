@@ -1,0 +1,41 @@
+{
+  "name": "r-dom",
+  "description": "React DOM wrapper",
+  "version": "0.0.0",
+  "homepage": "https://github.com/uber/r-dom",
+  "author": {
+    "name": "Matt Morgan",
+    "email": "matt@mlmorg.com",
+    "url": "http://mlmorg.com"
+  },
+  "keywords": [
+    "react",
+    "react.js",
+    "markup",
+    "dom"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uber/r-dom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uber/r-dom/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/uber/r-dom/blob/master/LICENSE"
+    }
+  ],
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "lint-trap": "^0.4.9",
+    "tape": "^3.0.0",
+    "tap-spec": "^1.0.0"
+  },
+  "scripts": {
+    "lint": "lint-trap",
+    "test": "npm run lint && node test/index.js | tap-spec"
+  }
+}
