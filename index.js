@@ -1,5 +1,5 @@
 'use strict';
-var React = require('react');
+var React = require('react/addons');
 
 module.exports = r;
 
@@ -19,6 +19,13 @@ function r(component, properties, children) {
     properties = {};
   }
 
+  if (properties.rendered === false) {
+    // React skips the component rendering if render() returns null.
+    return null;
+  }
+
+  processClasses(properties);
+
   // Set a default key to prevent React warnings
   if (!properties.key) {
     properties.key = component;
@@ -28,6 +35,15 @@ function r(component, properties, children) {
   }
 
   return React.createElement(component, properties, children);
+}
+
+// Wraps the className property value with React classSet if it's an object.
+function processClasses(properties) {
+  var className = properties.className;
+
+  if (className && typeof className === 'object') {
+    properties.className = React.addons.classSet(className);
+  }
 }
 
 function createTagFn(tag) {

@@ -46,5 +46,28 @@ module.exports = {
         r.span('A child')
       ])
     )
+  },
+  componentWithUnrenderedChild: {
+    html: '<div><h1></h1><span></span></div>',
+    dom: (
+      r(Component, [
+        r.span(),
+        r.div({rendered: false})
+      ])
+    )
+  },
+  componentWithDynamicClassNames: {
+    html: '<div><h1></h1><div class="class1 class2"></div></div>',
+    dom: (
+      r(Component, [
+        r.div({
+          className: {
+            class1: true,
+            class2: true,
+            class3: false
+          }
+        })
+      ])
+    )
   }
 };
