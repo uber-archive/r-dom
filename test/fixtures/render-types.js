@@ -52,7 +52,7 @@ module.exports = {
     dom: (
       r(Component, [
         r.span(),
-        r.div({rendered: false})
+        r.div({isRendered: false}, 'Should not show up')
       ])
     )
   },
