@@ -26,15 +26,10 @@ function r(component, properties, children) {
 
   processClasses(properties);
 
-  // Set a default key to prevent React warnings
-  if (!properties.key) {
-    properties.key = component;
-    if (typeof component === 'function') {
-      properties.key = component.displayName || 'customComponent';
-    }
-  }
+  var args = [component, properties];
+  args = args.concat(children);
 
-  return React.createElement(component, properties, children);
+  return React.createElement.apply(React, args);
 }
 
 // Wraps the className property value with React classSet if it's an object.

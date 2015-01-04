@@ -21,8 +21,7 @@ test('An html tag', function t(assert) {
 
   var div = r.div();
 
-  assert.equal(div.key, 'div',
-    'sets a default key property');
+  assert.ok(div, 'create an element');
 });
 
 test('An html tag with a key property', function t(assert) {
@@ -39,17 +38,7 @@ test('A component', function t(assert) {
 
   var component = r(createComponent());
 
-  assert.equal(component.key, 'customComponent',
-    'sets a default key property');
-});
-
-test('A component with a displayName', function t(assert) {
-  assert.plan(1);
-
-  var component = r(createComponent({displayName: 'fooBar'}));
-
-  assert.equal(component.key, 'fooBar',
-    'uses the displayName for the key property');
+  assert.ok(component, 'create an element from a component');
 });
 
 test('A component with a key property', function t(assert) {
