@@ -19,7 +19,7 @@ function r(component, properties, children) {
     properties = {};
   }
 
-  if (properties.rendered === false) {
+  if (properties.isRendered === false) {
     // React skips the component rendering if render() returns null.
     return null;
   }
