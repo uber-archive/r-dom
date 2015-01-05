@@ -17,20 +17,22 @@ test('Tags and components rendered with different args', function t(assert) {
 });
 
 test('An html tag', function t(assert) {
-  assert.plan(1);
+  assert.plan(2);
 
   var div = r.div();
 
   assert.ok(div, 'create an element');
+  assert.equal(React.Children.count(div.props.children), 0, 'has no children');
 });
 
-test('An html tag with a key property', function t(assert) {
-  assert.plan(1);
+test('An html tag with a key property and a child', function t(assert) {
+  assert.plan(2);
 
-  var div = r.div({key: 'someKey'});
+  var div = r.div({key: 'someKey'}, [r.span('span')]);
 
   assert.equal(div.key, 'someKey',
     'uses the passed key property');
+  assert.equal(React.Children.count(div.props.children), 1, 'has one child');
 });
 
 test('A component', function t(assert) {
@@ -41,7 +43,7 @@ test('A component', function t(assert) {
   assert.ok(component, 'create an element from a component');
 });
 
-test('A component with a key property', function t(assert) {
+test('A component with a key property and a child', function t(assert) {
   assert.plan(1);
 
   var component = r(createComponent(), {key: 'someKey'});
