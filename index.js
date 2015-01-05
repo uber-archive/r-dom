@@ -26,10 +26,15 @@ function r(component, properties, children) {
 
   processClasses(properties);
 
-  var args = [component, properties];
-  args = args.concat(children);
+  if (children) {
+    var args = [component, properties];
+    args = args.concat(children);
 
-  return React.createElement.apply(React, args);
+    return React.createElement.apply(React, args);
+  } else {
+    // Skip the expensive array operations if there are no children.
+    return React.createElement(component, properties);
+  }
 }
 
 // Wraps the className property value with React classSet if it's an object.
