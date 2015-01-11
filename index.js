@@ -32,12 +32,11 @@ function r(component, properties, children) {
   return React.createElement.apply(React, args);
 }
 
-// Wraps the className property value with React classSet if it's an object.
+// Wraps the classSet property value with React.addons.classSet
+// and assign to className.
 function processClasses(properties) {
-  var className = properties.className;
-
-  if (className && typeof className === 'object') {
-    properties.className = React.addons.classSet(className);
+  if (properties.classSet) {
+    properties.className = React.addons.classSet(properties.classSet);
   }
 }
 

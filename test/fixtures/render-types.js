@@ -61,7 +61,7 @@ module.exports = {
     dom: (
       r(Component, [
         r.div({
-          className: {
+          classSet: {
             class1: true,
             class2: true,
             class3: false
