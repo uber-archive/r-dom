@@ -57,13 +57,14 @@ module.exports = {
     )
   },
   componentWithDynamicClassNames: {
-    html: '<div><h1></h1><div class="class1 class2"></div></div>',
+    html: '<div><h1></h1><div class="class1 class3 class4"></div></div>',
     dom: (
       r(Component, [
         r.div({
-          className: {
+          className: ' class3 class4  ',
+          classSet: {
             class1: true,
-            class2: true,
+            class2: false,
             class3: false
           }
         })
