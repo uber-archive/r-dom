@@ -33,10 +33,22 @@ function r(component, properties, children) {
 }
 
 // Wraps the classSet property value with React.addons.classSet
-// and assign to className.
+// and merge into className.
 function processClasses(properties) {
-  if (properties.classSet) {
-    properties.className = React.addons.classSet(properties.classSet);
+  var classSet = properties.classSet;
+  if (classSet) {
+    var className = properties.className;
+    if (className && typeof className === 'string') {
+      var names = className.match(/\S+/g);
+
+      if (names) {
+        for (var i = 0; i < names.length; i++) {
+          classSet[names[i]] = true;
+        }
+      }
+    }
+
+    properties.className = React.addons.classSet(classSet);
   }
 }
 
