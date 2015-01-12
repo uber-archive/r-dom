@@ -26,10 +26,11 @@ function r(component, properties, children) {
 
   processClasses(properties);
 
-  var args = [component, properties];
-  args = args.concat(children);
+  // Set the children onto the properties to avoid warnings
+  // and increase performance
+  properties.children = children;
 
-  return React.createElement.apply(React, args);
+  return React.createElement(component, properties);
 }
 
 // Wraps the className property value with React classSet if it's an object.
