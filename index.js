@@ -33,12 +33,23 @@ function r(component, properties, children) {
   return React.createElement(component, properties);
 }
 
-// Wraps the className property value with React classSet if it's an object.
+// Wraps the classSet property value with React.addons.classSet
+// and merge into className.
 function processClasses(properties) {
-  var className = properties.className;
+  var classSet = properties.classSet;
+  if (classSet) {
+    var className = properties.className;
+    if (className && typeof className === 'string') {
+      var names = className.match(/\S+/g);
 
-  if (className && typeof className === 'object') {
-    properties.className = React.addons.classSet(className);
+      if (names) {
+        for (var i = 0; i < names.length; i++) {
+          classSet[names[i]] = true;
+        }
+      }
+    }
+
+    properties.className = React.addons.classSet(classSet);
   }
 }
 

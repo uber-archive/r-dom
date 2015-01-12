@@ -18,7 +18,7 @@ module.exports = React.createClass({
         r.h2('This is React.js markup')
         r(AnotherComponent, {foo: 'bar'}),
         r.div({
-          className: { // automatically use React classSet
+          classSet: { // automatically use React classSet
             foo: this.props.foo,
             bar: this.props.bar
           },
@@ -52,4 +52,4 @@ Returns a React element
 
 - **isRendered** `Boolean` - If strictly to false, React will skip rendering the target component.
 
-- **className** `String|Object` - If the className value is an object, apply React.addons.classSet() automatically.
+- **classSet** `String|Object` - If the classSet value is an object, apply React.addons.classSet() automatically and assign to className.
