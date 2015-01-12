@@ -57,7 +57,8 @@ module.exports = {
     )
   },
   componentWithDynamicClassNames: {
-    html: '<div><h1></h1><div class="class1 class2"></div></div>',
+    // Note that the class string from classSet contains a trailing whitespace.
+    html: '<div><h1></h1><div class="class1 class2 "></div></div>',
     dom: (
       r(Component, [
         r.div({
