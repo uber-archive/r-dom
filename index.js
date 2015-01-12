@@ -1,5 +1,6 @@
 'use strict';
-var React = require('react/addons');
+var React = require('react');
+var classSet = require('react/lib/cx');
 
 module.exports = r;
 
@@ -38,7 +39,7 @@ function processClasses(properties) {
   var className = properties.className;
 
   if (className && typeof className === 'object') {
-    properties.className = React.addons.classSet(className);
+    properties.className = classSet(className);
   }
 }
 
