@@ -34,8 +34,7 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "react": "^0.12.2",
-    "react-classset": "^0.0.1"
+    "react": "^0.12.2"
   },
   "devDependencies": {
     "lint-trap": "^0.4.9",

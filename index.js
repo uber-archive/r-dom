@@ -1,6 +1,6 @@
 'use strict';
 var React = require('react');
-var classSet = require('react-classset');
+var classSet = require('react/lib/cx');
 
 module.exports = r;
 
