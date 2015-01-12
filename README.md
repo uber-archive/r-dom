@@ -1,4 +1,4 @@
-# r-dom
+# r-dom [![Build Status](https://travis-ci.org/uber/r-dom.png?branch=master)](https://travis-ci.org/uber/r-dom)
 
 React DOM wrapper.
 
@@ -52,4 +52,4 @@ Returns a React element
 
 - **isRendered** `Boolean` - If strictly to false, React will skip rendering the target component.
 
-- **classSet** `String|Object` - If the classSet value is an object, apply React.addons.classSet() automatically and assign to className.
+- **classSet** `Object` - Apply React.addons.classSet() automatically and assign to className.
