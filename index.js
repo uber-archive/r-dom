@@ -52,17 +52,15 @@ function processClasses(properties) {
   }
 
   var className = properties.className;
-  if (!className || typeof className !== 'string') {
-    return;
-  }
+  if (className && typeof className === 'string') {
+    var names = className.match(/\S+/g);
+    if (!names) {
+      return;
+    }
 
-  var names = className.match(/\S+/g);
-  if (!names) {
-    return;
-  }
-
-  for (var i = 0; i < names.length; i++) {
-    classSetConfig[names[i]] = true;
+    for (var i = 0; i < names.length; i++) {
+      classSetConfig[names[i]] = true;
+    }
   }
 
   properties.className = classSet(classSetConfig);
