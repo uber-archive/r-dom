@@ -83,9 +83,9 @@ function createArguments(component, properties, children) {
   return args;
 }
 
-function createTagFn(tag) {
+function createTagFn(tagName) {
   return function reactTag(properties, children) {
-    return r(tag, properties, children);
+    return r(tagName, properties, children);
   };
 }
 
