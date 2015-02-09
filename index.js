@@ -27,31 +27,60 @@ function r(component, properties, children) {
 
   processClasses(properties);
 
-  // Set the children onto the properties to avoid warnings
-  // and increase performance
-  properties.children = children;
+  // Don't use an array if there's only one child
+  if (Array.isArray(children) && children.length === 1) {
+    children = children[0];
+  }
 
-  return React.createElement(component, properties);
+  // When there's only one child, call createElement normally
+  // to achieve a minor performance gain
+  if (!Array.isArray(children)) {
+    return React.createElement(component, properties, children);
+  }
+
+  // When many children, use apply to prevent unnecessary key warnings
+  var args = createArguments(component, properties, children);
+  return React.createElement.apply(React, args);
 }
 
 // Wraps the classSet property value with React.addons.classSet
 // and merge into className.
 function processClasses(properties) {
   var classSetConfig = properties.classSet;
-  if (classSetConfig) {
-    var className = properties.className;
-    if (className && typeof className === 'string') {
-      var names = className.match(/\S+/g);
-
-      if (names) {
-        for (var i = 0; i < names.length; i++) {
-          classSetConfig[names[i]] = true;
-        }
-      }
-    }
-
-    properties.className = classSet(classSetConfig);
+  if (!classSetConfig) {
+    return;
   }
+
+  var className = properties.className;
+  if (!className || typeof className !== 'string') {
+    return;
+  }
+
+  var names = className.match(/\S+/g);
+  if (!names) {
+    return;
+  }
+
+  for (var i = 0; i < names.length; i++) {
+    classSetConfig[names[i]] = true;
+  }
+
+  properties.className = classSet(classSetConfig);
+}
+
+// Creates an array of React.createElement arguments in a performant way
+function createArguments(component, properties, children) {
+  var argLength = children.length + 2;
+  var args = new Array(argLength);
+
+  args[0] = component;
+  args[1] = properties;
+  for (var i = 0; i < children.length; i++) {
+    var argsIndex = i + 2;
+    args[argsIndex] = children[i];
+  }
+
+  return args;
 }
 
 function createTagFn(tag) {

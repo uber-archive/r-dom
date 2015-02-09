@@ -26,13 +26,13 @@ module.exports = {
     )
   },
   component: {
-    html: '<div><h1></h1></div>',
+    html: '<div><h1></h1><div></div></div>',
     dom: (
       r(Component)
     )
   },
   componentWithChildren: {
-    html: '<div><h1></h1><span>A child</span></div>',
+    html: '<div><h1></h1><div><span>A child</span></div></div>',
     dom: (
       r(Component, [
         r.span('A child')
@@ -40,7 +40,7 @@ module.exports = {
     )
   },
   componentWithPropsAndChildren: {
-    html: '<div><h1>Hello World</h1><span>A child</span></div>',
+    html: '<div><h1>Hello World</h1><div><span>A child</span></div></div>',
     dom: (
       r(Component, {title: 'Hello World'}, [
         r.span('A child')
@@ -48,7 +48,7 @@ module.exports = {
     )
   },
   componentWithUnrenderedChild: {
-    html: '<div><h1></h1><span></span></div>',
+    html: '<div><h1></h1><div><span></span></div></div>',
     dom: (
       r(Component, [
         r.span(),
@@ -57,7 +57,8 @@ module.exports = {
     )
   },
   componentWithDynamicClassNames: {
-    html: '<div><h1></h1><div class="class1 class3 class4"></div></div>',
+    html: '<div><h1></h1><div><div class="class1 class3 class4"></div></div>' +
+      '</div>',
     dom: (
       r(Component, [
         r.div({

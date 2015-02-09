@@ -12,7 +12,9 @@ function createComponent(properties) {
       return (
         r.div([
           r.h1(this.props.title),
-          this.props.children
+          // This tests that children are passed down correctly to
+          // components that use React.DOM directly (and don't warn)
+          React.DOM.div(null, this.props.children)
         ])
       );
     }
