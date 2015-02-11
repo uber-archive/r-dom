@@ -5,11 +5,15 @@ var classSet = require('react/lib/cx');
 module.exports = r;
 
 // Export the React.DOM html tags
-for (var tag in React.DOM) {
-  if (React.DOM.hasOwnProperty(tag)) {
-    r[tag] = createTagFn(tag);
+function exportTags(r) {
+  for (var tag in React.DOM) {
+    if (React.DOM.hasOwnProperty(tag)) {
+      r[tag] = createTagFn(tag);
+    }
   }
 }
+
+exportTags();
 
 function r(component, properties, children) {
   properties = properties || {};
