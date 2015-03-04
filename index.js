@@ -1,6 +1,7 @@
 'use strict';
 var React = require('react');
 var classSet = require('react/lib/cx');
+var assign = require('react/lib/Object.assign');
 
 module.exports = r;
 
@@ -26,6 +27,7 @@ function r(component, properties, children) {
   }
 
   processClasses(properties);
+  processPropertyInheritance(properties);
 
   // Don't use an array if there's only one child
   if (Array.isArray(children) && children.length === 1) {
@@ -64,6 +66,34 @@ function processClasses(properties) {
   }
 
   properties.className = classSet(classSetConfig);
+}
+
+// Processes the property inheritance.
+// The inheritProps property could take this.props from the parent component,
+// or a config object that specifies properties to include / exludes.
+function processPropertyInheritance(properties) {
+  var inheritProps = properties.inheritProps;
+  if (!inheritProps) {
+    return;
+  }
+
+  if (inheritProps.props) {
+    var sourceProps = inheritProps.props;
+
+    if (Array.isArray(inheritProps.includes)) {
+      inheritProps.includes.forEach(function forEach(propName) {
+        properties[propName] = sourceProps[propName];
+      });
+    } else if (Array.isArray(inheritProps.excludes)) {
+      Object.keys(sourceProps).forEach(function forEach(propName) {
+        if (inheritProps.excludes.indexOf(propName) === -1) {
+          properties[propName] = sourceProps[propName];
+        }
+      });
+    }
+  } else {
+    assign(properties, inheritProps);
+  }
 }
 
 // Creates an array of React.createElement arguments in a performant way
