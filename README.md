@@ -53,3 +53,37 @@ Returns a React element
 - **isRendered** `Boolean` - If strictly to false, React will skip rendering the target component.
 
 - **classSet** `Object` - Apply React.addons.classSet() automatically and assign to className.
+
+- **inheritProps** `Object` - Properties inherited from the parent component.
+
+```js
+var Parent = React.createClass({
+  render: function render() {
+    r(Child, {
+      inheritProps: this.props // Inherits all properties from parent.
+    });
+  }
+});
+
+var Parent = React.createClass({
+  render: function render() {
+    r(Child, {
+      inheritProps: {
+        props: this.props,
+        includes: ['id', 'name'] // Inherits properties named ['id', 'name'].
+      }
+    });
+  }
+});
+
+var Parent = React.createClass({
+  render: function render() {
+    r(Child, {
+      inheritProps: {
+        props: this.props,
+        excludes: ['id', 'name'] // Inherits all properties from parent except ['id', 'name'].
+      }
+    });
+  }
+});
+```

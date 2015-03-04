@@ -34,6 +34,7 @@
   ],
   "main": "index.js",
   "dependencies": {
+    "global": "^4.3.0",
     "react": "^0.12.2"
   },
   "devDependencies": {

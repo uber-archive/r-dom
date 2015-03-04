@@ -1,6 +1,7 @@
 'use strict';
 var React = require('react');
 var classSet = require('react/lib/cx');
+var window = require('global/window');
 
 module.exports = r;
 
@@ -26,6 +27,7 @@ function r(component, properties, children) {
   }
 
   processClasses(properties);
+  processPropertyInheritance(properties);
 
   // Don't use an array if there's only one child
   if (Array.isArray(children) && children.length === 1) {
@@ -64,6 +66,51 @@ function processClasses(properties) {
   }
 
   properties.className = classSet(classSetConfig);
+}
+
+// Processes the property inheritance.
+// The inheritProps property could take this.props from the parent component,
+// or a config object that specifies properties to include / exludes.
+function processPropertyInheritance(properties) {
+  var inheritProps = properties.inheritProps;
+  if (!inheritProps) {
+    return;
+  }
+
+  var sourceProps;
+
+  if (inheritProps.props) {
+    sourceProps = inheritProps.props;
+
+    if (Array.isArray(inheritProps.includes)) {
+      inheritProps.includes.forEach(function forEach(propName) {
+        assignProperty(sourceProps, properties, propName);
+      });
+    } else if (Array.isArray(inheritProps.excludes)) {
+      Object.keys(sourceProps).forEach(function forEach(propName) {
+        if (inheritProps.excludes.indexOf(propName) === -1) {
+          assignProperty(sourceProps, properties, propName);
+        }
+      });
+    }
+  } else {
+    sourceProps = inheritProps;
+    Object.keys(sourceProps).forEach(function forEach(propName) {
+      assignProperty(sourceProps, properties, propName);
+    });
+  }
+}
+
+// Assigns the property specified by name from the source to the target.
+// A warning is thrown if the property with the same name already exists.
+function assignProperty(sourceProps, targetProps, propName) {
+  if (propName in targetProps) {
+    var warning = ['Property', propName,
+      'already exits in the target properties.'].join(' ');
+    window.console.warn(warning);
+  } else {
+    targetProps[propName] = sourceProps[propName];
+  }
 }
 
 // Creates an array of React.createElement arguments in a performant way

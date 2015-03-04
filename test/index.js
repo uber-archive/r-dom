@@ -8,6 +8,8 @@ var createComponent = require('./fixtures/create-component');
 var r = require('../');
 var renderTypes = require('./fixtures/render-types');
 
+require('./test-inheritance');
+
 test('Tags and components rendered with different args', function t(assert) {
   forEach(renderTypes, function renderCorrectly(data, name) {
     var dom;
