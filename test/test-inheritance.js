@@ -5,7 +5,7 @@ var React = require('react');
 var r = require('../');
 
 var name = 'name';
-var id = 33;
+var id = 1455;
 var valid = true;
 
 function text(value) {
@@ -107,4 +107,24 @@ test('Test property inheritance with excludes.', function t(assert) {
 
   checkParentRendering(assert, Parent, [name, valid],
     'Component rendered properly with property inheritance excludes.');
+});
+
+test('Test conflicting property names.', function t(assert) {
+  assert.plan(1);
+
+  var childId = 685;
+  var childName = 'child';
+
+  var Parent = React.createClass({
+    render: function render() {
+      return r(createChildComponent(), {
+        inheritProps: this.props,
+        id: childId,
+        name: childName
+      });
+    }
+  });
+
+  checkParentRendering(assert, Parent, [childId, childName, valid],
+    'Component rendered properly without explicit properties overriden.');
 });

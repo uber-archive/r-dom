@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react');
 var classSet = require('react/lib/cx');
-var assign = require('react/lib/Object.assign');
+var window = require('global/window');
 
 module.exports = r;
 
@@ -77,22 +77,39 @@ function processPropertyInheritance(properties) {
     return;
   }
 
+  var sourceProps;
+
   if (inheritProps.props) {
-    var sourceProps = inheritProps.props;
+    sourceProps = inheritProps.props;
 
     if (Array.isArray(inheritProps.includes)) {
       inheritProps.includes.forEach(function forEach(propName) {
-        properties[propName] = sourceProps[propName];
+        assignProperty(sourceProps, properties, propName);
       });
     } else if (Array.isArray(inheritProps.excludes)) {
       Object.keys(sourceProps).forEach(function forEach(propName) {
         if (inheritProps.excludes.indexOf(propName) === -1) {
-          properties[propName] = sourceProps[propName];
+          assignProperty(sourceProps, properties, propName);
         }
       });
     }
   } else {
-    assign(properties, inheritProps);
+    sourceProps = inheritProps;
+    Object.keys(sourceProps).forEach(function forEach(propName) {
+      assignProperty(sourceProps, properties, propName);
+    });
+  }
+}
+
+// Assigns the property specified by name from the source to the target.
+// A warning is thrown if the property with the same name already exists.
+function assignProperty(sourceProps, targetProps, propName) {
+  if (propName in targetProps) {
+    var warning = ['Property', propName,
+      'already exits in the target properties.'].join(' ');
+    window.console.warn(warning);
+  } else {
+    targetProps[propName] = sourceProps[propName];
   }
 }
 
