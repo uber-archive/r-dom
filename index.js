@@ -1,13 +1,13 @@
 'use strict';
 var React = require('react');
-var classSet = require('react/lib/cx');
+var classSet = require('classnames');
 
 module.exports = r;
 
 // Export the React.DOM html tags
-for (var tag in React.DOM) {
-  if (React.DOM.hasOwnProperty(tag)) {
-    r[tag] = createTagFn(tag);
+for (var domTag in React.DOM) {
+  if (React.DOM.hasOwnProperty(domTag)) {
+    r[domTag] = createTagFn(domTag);
   }
 }
 
