@@ -1,5 +1,9 @@
 # Changelog
 
+## `v1.2.0`
+
+Change semver range to support both React 0.12 and 0.13
+
 ## `v1.1.0`
 
 Use `classnames` instead of React's `classSet`
