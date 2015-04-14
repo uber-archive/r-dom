@@ -34,7 +34,7 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "react": "^0.12.2",
+    "react": ">=0.12.0 <0.14.0",
     "classnames": "^1.1.4"
   },
   "devDependencies": {
