@@ -1,5 +1,9 @@
 # Changelog
 
+## `v1.1.0`
+
+Use `classnames` instead of React's `classSet`
+
 ## `v1.0.2`
 
 Fix a bug whereby classSet would not apply if className was empty.
