@@ -2,6 +2,11 @@
 var React = require('react');
 var classSet = require('classnames');
 
+var childTypes = [
+  'string',
+  'number'
+];
+
 module.exports = r;
 
 // Export the React.DOM html tags
@@ -88,5 +93,5 @@ function createTagFn(tagName) {
 }
 
 function isChildren(x) {
-  return typeof x === 'string' || Array.isArray(x);
+  return childTypes.indexOf(typeof x) !== -1 || Array.isArray(x);
 }
