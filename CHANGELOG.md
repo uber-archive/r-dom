@@ -1,5 +1,9 @@
 # Changelog
 
+## `v1.3.0`
+
+Add ability to pass a Number as a child
+
 ## `v1.2.0`
 
 Change semver range to support both React 0.12 and 0.13
