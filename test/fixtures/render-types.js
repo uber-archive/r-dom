@@ -25,6 +25,22 @@ module.exports = {
       ])
     )
   },
+  tagWithAnIntegerAsChildren: {
+    html: '<div><h1>12345</h1></div>',
+    dom: (
+      r.div([
+        r.h1(12345)
+      ])
+    )
+  },
+  tagWithAFloatAsChildren: {
+    html: '<div><h1>123.45</h1></div>',
+    dom: (
+      r.div([
+        r.h1(123.45)
+      ])
+    )
+  },
   component: {
     html: '<div><h1></h1><div></div></div>',
     dom: (
