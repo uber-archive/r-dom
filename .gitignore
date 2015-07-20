@@ -6,3 +6,5 @@ coverage/
 .editorconfig
 .jscsrc
 .jshintrc
+
+npm-debug.log

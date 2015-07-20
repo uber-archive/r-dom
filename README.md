@@ -22,7 +22,7 @@ module.exports = React.createClass({
             foo: this.props.foo,
             bar: this.props.bar
           },
-          isRendered: this.props.foo // div won't render if isRendered === false
+          isRendered: this.props.foo // div won't render if isRendered is falsy
         })
       ])
     );
@@ -50,6 +50,6 @@ Returns a React element
 
 #### Special Properties
 
-- **isRendered** `Boolean` - If strictly to false, React will skip rendering the target component.
+- **isRendered** `"Boolean"` - If falsy, React will skip rendering the target component.
 
 - **classSet** `Object` - Apply React.addons.classSet() automatically and assign to className.
