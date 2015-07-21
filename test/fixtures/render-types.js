@@ -63,12 +63,39 @@ module.exports = {
       ])
     )
   },
-  componentWithUnrenderedChild: {
+  componentWithUnrenderedChildWithFalse: {
     html: '<div><h1></h1><div><span></span></div></div>',
     dom: (
       r(Component, [
         r.span(),
         r.div({isRendered: false}, 'Should not show up')
+      ])
+    )
+  },
+  componentWithUnrenderedChildWithFalsy: {
+    html: '<div><h1></h1><div><span></span></div></div>',
+    dom: (
+      r(Component, [
+        r.span(),
+        r.div({isRendered: 0}, 'Should not show up')
+      ])
+    )
+  },
+  componentWithRenderedChildWithTruth: {
+    html: '<div><h1></h1><div><span></span><div>show up</div></div></div>',
+    dom: (
+      r(Component, [
+        r.span(),
+        r.div({isRendered: true}, 'show up')
+      ])
+    )
+  },
+  componentWithRenderedChildWithTruthy: {
+    html: '<div><h1></h1><div><span></span><div>show up</div></div></div>',
+    dom: (
+      r(Component, [
+        r.span(),
+        r.div({isRendered: 1}, 'show up')
       ])
     )
   },
