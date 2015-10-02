@@ -59,12 +59,8 @@ function processClasses(properties) {
   var className = properties.className;
   if (typeof className === 'string') {
     className = className.trim();
-    if (className) {
-      classSetConfig[className] = true;
-    }
   }
-
-  properties.className = classSet(classSetConfig);
+  properties.className = classSet(classSetConfig, className);
 }
 
 // Creates an array of React.createElement arguments in a performant way
