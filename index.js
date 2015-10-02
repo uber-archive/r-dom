@@ -57,14 +57,10 @@ function processClasses(properties) {
   }
 
   var className = properties.className;
-  if (className && typeof className === 'string') {
-    var names = className.match(/\S+/g);
-    if (!names) {
-      return;
-    }
-
-    for (var i = 0; i < names.length; i++) {
-      classSetConfig[names[i]] = true;
+  if (typeof className === 'string') {
+    className = className.trim();
+    if (className) {
+      classSetConfig[className] = true;
     }
   }
 
