@@ -18,7 +18,7 @@ module.exports = React.createClass({
         r.h2('This is React.js markup'),
         r(AnotherComponent, {foo: 'bar'}),
         r.div({
-          classSet: { // automatically use React classSet
+          classSet: { // Automatically use `classnames` module for classSet
             foo: this.props.foo,
             bar: this.props.bar
           },
