@@ -37,10 +37,10 @@
     "classnames": "^1.1.4"
   },
   "peerDependencies": {
-    "react": "0.12.x - 0.14.x"
+    "react": "0.12.x - 15.x"
   },
   "devDependencies": {
-    "react": "0.12.x - 0.14.x",
+    "react": "0.12.x - 15.x",
     "lint-trap": "^0.4.9",
     "tape": "^3.0.0",
     "tap-spec": "^1.0.0",
