@@ -1,7 +1,7 @@
 'use strict';
 var console = require('console');
 var forEach = require('for-each');
-var React = require('react');
+var ReactDOM = require('react-dom/server');
 var test = require('tape');
 
 var createComponent = require('./fixtures/create-component');
@@ -53,7 +53,7 @@ test('A component with a key property', function t(assert) {
 });
 
 function getDOMString(reactElement) {
-  return React.renderToStaticMarkup(reactElement);
+  return ReactDOM.renderToStaticMarkup(reactElement);
 }
 
 function catchWarns(fn) {
