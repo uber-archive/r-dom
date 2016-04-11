@@ -1,5 +1,17 @@
 # Changelog
 
+## `v2.2.0`
+
+Support React `v15`
+
+## `v2.1.0`
+
+Move React to peerDeps
+
+## `v2.0.0`
+
+Support falsy for `isRendered`
+
 ## `v1.3.0`
 
 Add ability to pass a Number as a child
