@@ -41,6 +41,14 @@ module.exports = {
       ])
     )
   },
+  tagWithZeroAsChildren: {
+    html: '<div><h1>0</h1></div>',
+    dom: (
+      r.div([
+        r.h1(0)
+      ])
+    )
+  },
   component: {
     html: '<div><h1></h1><div></div></div>',
     dom: (

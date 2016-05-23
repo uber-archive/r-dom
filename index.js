@@ -17,7 +17,9 @@ for (var domTag in React.DOM) {
 }
 
 function r(component, properties, children) {
-  properties = properties || {};
+  if (properties === undefined) {
+    properties = {};
+  }
 
   // A properties object is optional so shift arguments if missing
   if (!children && isChildren(properties)) {
