@@ -49,6 +49,14 @@ module.exports = {
       ])
     )
   },
+  tagWithNullProps: {
+    html: '<div><h1>Foo</h1></div>',
+    dom: (
+      r.div(null, [
+        r.h1('Foo')
+      ])
+    )
+  },
   component: {
     html: '<div><h1></h1><div></div></div>',
     dom: (

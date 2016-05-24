@@ -1,5 +1,9 @@
 # Changelog
 
+## `v2.2.2`
+
+Fix issue with null props throwing error
+
 ## `v2.2.1`
 
 Fix issue with numbers not rendering as text

@@ -2,11 +2,6 @@
 var React = require('react');
 var classSet = require('classnames');
 
-var childTypes = [
-  'string',
-  'number'
-];
-
 module.exports = r;
 
 // Export the React.DOM html tags
@@ -17,15 +12,13 @@ for (var domTag in React.DOM) {
 }
 
 function r(component, properties, children) {
-  if (properties === undefined) {
-    properties = {};
-  }
-
   // A properties object is optional so shift arguments if missing
   if (!children && isChildren(properties)) {
     children = properties;
     properties = {};
   }
+
+  properties = properties || {};
 
   if (properties.isRendered !== undefined && !properties.isRendered) {
     // React skips the component rendering if render() returns null.
@@ -95,5 +88,5 @@ function createTagFn(tagName) {
 }
 
 function isChildren(x) {
-  return childTypes.indexOf(typeof x) !== -1 || Array.isArray(x);
+  return typeof x === 'string' || typeof x === 'number' || Array.isArray(x);
 }
