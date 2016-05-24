@@ -1,5 +1,9 @@
 # Changelog
 
+## `v2.2.1`
+
+Fix issue with numbers not rendering as text
+
 ## `v2.2.0`
 
 Support React `v15`
