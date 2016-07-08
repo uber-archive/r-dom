@@ -1,6 +1,7 @@
 'use strict';
 var React = require('react');
 var classSet = require('classnames');
+var omit = require('object.omit');
 
 module.exports = r;
 
@@ -32,18 +33,20 @@ function r(component, properties, children) {
     children = children[0];
   }
 
+  var props = omit(properties, ['classSet', 'isRendered']);
+
   // When there's only one child, call createElement normally
   // to achieve a minor performance gain
   if (!Array.isArray(children)) {
-    return React.createElement(component, properties, children);
+    return React.createElement(component, props, children);
   }
 
   // When many children, use apply to prevent unnecessary key warnings
-  var args = createArguments(component, properties, children);
+  var args = createArguments(component, props, children);
   return React.createElement.apply(React, args);
 }
 
-// Wraps the classSet property value with React.addons.classSet
+// Wraps the classSet property value with `classnames` library
 // and merge into className.
 function processClasses(properties) {
   var classSetConfig = properties.classSet;

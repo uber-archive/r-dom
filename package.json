@@ -1,7 +1,7 @@
 {
   "name": "r-dom",
   "description": "React DOM wrapper",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "homepage": "https://github.com/uber/r-dom",
   "contributors": [
     {
@@ -34,7 +34,8 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "classnames": "^1.1.4"
+    "classnames": "^1.1.4",
+    "object.omit": "^2.0.0"
   },
   "peerDependencies": {
     "react": "0.12.x - 15.x"

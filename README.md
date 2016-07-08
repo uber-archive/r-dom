@@ -51,4 +51,4 @@ Returns a React element
 #### Special Properties
 
 - **isRendered** `"Boolean"` *optional* - If falsy, React will skip rendering the target component.
-- **classSet** `Object` *optional* - Apply React.addons.classSet() automatically and assign to className.
+- **classSet** `Object` *optional* - Apply [classnames](https://www.npmjs.com/package/classnames) and assign to className.
