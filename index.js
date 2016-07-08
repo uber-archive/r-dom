@@ -46,7 +46,7 @@ function r(component, properties, children) {
   return React.createElement.apply(React, args);
 }
 
-// Wraps the classSet property value with React.addons.classSet
+// Wraps the classSet property value with `classnames` library
 // and merge into className.
 function processClasses(properties) {
   var classSetConfig = properties.classSet;

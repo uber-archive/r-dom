@@ -52,4 +52,4 @@ Returns a React element
 
 - **isRendered** `"Boolean"` - If falsy, React will skip rendering the target component.
 
-- **classSet** `Object` - Apply React.addons.classSet() automatically and assign to className.
+- **classSet** `Object` - Apply [classnames](https://www.npmjs.com/package/classnames) and assign to className.
