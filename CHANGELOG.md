@@ -1,5 +1,9 @@
 # Changelog
 
+## `v2.2.3`
+
+Fix unknown prop warnings in React `v15.2.0`
+
 ## `v2.2.2`
 
 Fix issue with null props throwing error
