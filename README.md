@@ -1,4 +1,4 @@
-# r-dom [![Build Status](https://travis-ci.org/uber/r-dom.png?branch=master)](https://travis-ci.org/uber/r-dom)
+# r-dom [![Build Status](https://travis-ci.org/uber/r-dom.svg?branch=master)](https://travis-ci.org/uber/r-dom)
 
 React DOM wrapper.
 
