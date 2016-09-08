@@ -1,5 +1,9 @@
 # Changelog
 
+## `v2.3.0`
+
+Update classnames dependency
+
 ## `v2.2.3`
 
 Fix unknown prop warnings in React `v15.2.0`
