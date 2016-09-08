@@ -1,7 +1,7 @@
 {
   "name": "r-dom",
   "description": "React DOM wrapper",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "homepage": "https://github.com/uber/r-dom",
   "contributors": [
     {
