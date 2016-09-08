@@ -34,7 +34,7 @@
   ],
   "main": "index.js",
   "dependencies": {
-    "classnames": "^1.1.4",
+    "classnames": "^2.2.5",
     "object.omit": "^2.0.0"
   },
   "peerDependencies": {
