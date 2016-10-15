@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react');
 var classSet = require('classnames');
-var omit = require('object.omit');
+var omit = require('just-omit');
 
 module.exports = r;
 

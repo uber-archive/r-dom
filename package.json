@@ -35,7 +35,7 @@
   "main": "index.js",
   "dependencies": {
     "classnames": "^2.2.5",
-    "object.omit": "^2.0.0"
+    "just-omit": "^1.0.1"
   },
   "peerDependencies": {
     "react": "0.12.x - 15.x"
