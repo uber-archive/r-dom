@@ -1,5 +1,9 @@
 # Changelog
 
+## `v2.3.1`
+
+Replace object-omit with just-omit
+
 ## `v2.3.0`
 
 Update classnames dependency
