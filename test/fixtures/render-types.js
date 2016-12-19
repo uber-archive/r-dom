@@ -97,6 +97,15 @@ module.exports = {
       ])
     )
   },
+  componentWithUnrenderedChildWithUndefined: {
+  html: '<div><h1></h1><div><span></span></div></div>',
+  dom: (
+    r(Component, [
+      r.span(),
+      r.div({isRendered: undefined && true}, 'Should not show up')
+    ])
+  )
+},
   componentWithRenderedChildWithTruth: {
     html: '<div><h1></h1><div><span></span><div>show up</div></div></div>',
     dom: (

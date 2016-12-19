@@ -21,7 +21,7 @@ function r(component, properties, children) {
 
   properties = properties || {};
 
-  if (properties.isRendered !== undefined && !properties.isRendered) {
+  if (properties.hasOwnProperty('isRendered') && !properties.isRendered) {
     // React skips the component rendering if render() returns null.
     return null;
   }
