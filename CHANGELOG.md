@@ -1,5 +1,9 @@
 # Changelog
 
+## `v2.3.2`
+
+Handle undefined value passed to isRendered 
+
 ## `v2.3.1`
 
 Replace object-omit with just-omit
