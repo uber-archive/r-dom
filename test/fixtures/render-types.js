@@ -138,6 +138,21 @@ module.exports = {
       ])
     )
   },
+  componentWithClassNameWithWhitespace: {
+    html: '<div><h1></h1><div><div class="class1 class2"></div></div></div>',
+    dom: (
+      r(Component, [
+        r.div({
+          className: ' ',
+          classSet: {
+            class1: true,
+            class2: true,
+            class3: false
+          }
+        })
+      ])
+    )
+  },
   componentWithDynamicClassNames: {
     html: '<div><h1></h1><div><div class="class1 class3 class4"></div></div>' +
       '</div>',
