@@ -35,7 +35,8 @@
   "main": "index.js",
   "dependencies": {
     "classnames": "^2.2.5",
-    "just-omit": "^1.0.1"
+    "just-omit": "^1.0.1",
+    "react-dom-factories": "^1.0.2"
   },
   "peerDependencies": {
     "react": "0.12.x - 15.x"
