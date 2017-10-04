@@ -1,5 +1,9 @@
 # Changelog
 
+## `v2.4.0`
+
+Support React v16
+
 ## `v2.3.2`
 
 Handle undefined value passed to isRendered 
