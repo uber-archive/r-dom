@@ -1,6 +1,7 @@
 'use strict';
 var extend = require('xtend');
-var React = require('react');
+var createReactClass = require('create-react-class');
+var DOM = require('react-dom-factories');
 
 var r = require('../../');
 
@@ -14,11 +15,11 @@ function createComponent(properties) {
           r.h1(this.props.title),
           // This tests that children are passed down correctly to
           // components that use React.DOM directly (and don't warn)
-          React.DOM.div(null, this.props.children)
+          DOM.div(null, this.props.children)
         ])
       );
     }
   }, properties);
 
-  return React.createClass(properties);
+  return createReactClass(properties);
 }

@@ -2,12 +2,13 @@
 var React = require('react');
 var classSet = require('classnames');
 var omit = require('just-omit');
+var ReactDOM = require('react-dom-factories');
 
 module.exports = r;
 
 // Export the React.DOM html tags
-for (var domTag in React.DOM) {
-  if (React.DOM.hasOwnProperty(domTag)) {
+for (var domTag in ReactDOM) {
+  if (ReactDOM.hasOwnProperty(domTag)) {
     r[domTag] = createTagFn(domTag);
   }
 }
